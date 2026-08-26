@@ -1,0 +1,14 @@
+[project]
+name = "saeabench"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Pawel", email = "01187285@pw.edu.pl" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
