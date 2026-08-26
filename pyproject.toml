@@ -1,12 +1,12 @@
 [project]
 name = "saeabench"
 version = "0.1.0"
-description = "Add your description here"
+description = "Surrogate Assisted Evolutionary Algorithm Benchmark"
 readme = "README.md"
 authors = [
     { name = "Pawel", email = "01187285@pw.edu.pl" }
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 dependencies = []
 
 [build-system]
