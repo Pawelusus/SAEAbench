@@ -4,11 +4,116 @@ version = "0.1.0"
 description = "Surrogate Assisted Evolutionary Algorithm Benchmark"
 readme = "README.md"
 authors = [
-    { name = "Pawel", email = "01187285@pw.edu.pl" }
+    { name = "Paweł Spirydowicz" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "cma>=4.5.0",
+    "numpy>=2.5.4",
+    "pyarrow>=26.0.0",
+    "pydantic>=2.14.1",
+    "scikit-learn>=1.9.1",
+    "scipy>=1.18.1",
+    "typer>=0.27.3",
+]
+
+
+[project.optional-dependencies]
+plots = [
+    "matplotlib>=3.11.2",
+    "seaborn>=0.13.2",
+]
+
+coco = [
+    "coco-experiment>=2.8.2",
+    "cocopp>=2.9.1",
+]
+
+surrogates = [
+    "tabicl>=2.2.0",
+    "tabpfn>=9.2.0",
+]
+
+[project.scripts]
+saeabench = "saeabench.cli.main:app"
 
 [build-system]
 requires = ["uv_build>=0.12.6,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+lint = [
+    "ruff>=0.17.1",
+]
+
+test = [
+    { include-group = "lint" },
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+]
+
+docs = [
+    "sphinx>=9.1.0",
+    "sphinx-autodoc-typehints>=3.17.2",
+]
+
+dev = [
+    { include-group = "lint" },
+    { include-group = "test" },
+    { include-group = "docs" },
+    "commitizen>=4.19.2",
+    "pre-commit>=4.7.0",
+]
+
+[tool.ruff]
+target-version = "py314"
+
+line-length = 88
+indent-width = 4
+
+extend-exclude = [
+    ".venv",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "N"]
+ignore = ["N803", "N806", "E501"]
+
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--cov=saeabench",
+    "--cov-report=term-missing",
+]
+
+[tool.coverage.run]
+source = ["saeabench"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version_provider = "uv"
+version_scheme = "semver2"
+tag_format = "v$version"
+update_changelog_on_bump = true
+changelog_file = "CHANGELOG.md"
+retry_after_failure = true
+major_version_zero = true
