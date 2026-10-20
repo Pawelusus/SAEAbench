@@ -1,9 +1,10 @@
 - ~~setup comitizen~~
-- setup precommit hooks (pre-commit)
+- ~~setup precommit hooks (pre-commit)~~
 - create empty files for implementation
 - setup CI/CD (github actions, Codecov?)
 - setup logging (just logging from stdlib - logging)
-- setup something for documentation (sphinx probably)
+- ~~setup something for documentation (sphinx probably)~~
+- write docs
 - setup cli (typer)
 - setup code quality tools
   - ~~ruff~~ (check)
@@ -20,15 +21,17 @@
   - sklearn
   - pydantic
   - typer
-  - pyarrow?
+  - pyarrow
   - tabpfn
   - cocoex
   - cocopp
   - cma
   - matplotlib
-  - seaborn?
+  - seaborn
   - sphinx
-  - scipy?
+  - scipy
   - tabicl
 
-- create dependency groups and sort out libraries correctly
+- check if added libraries are neccessary
+
+- ~~create dependency groups and sort out libraries correctly~~ (check)

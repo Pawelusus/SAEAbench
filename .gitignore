@@ -1,4 +1,47 @@
-.venv
-.ruff_cache
-build
-dist
+# Virtual environments
+.venv/
+venv/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+
+# Ruff
+.ruff_cache/
+
+# pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Type checkers
+.mypy_cache/
+.pyright/
+.pytype/
+
+# Sphinx-generated documentation
+docs/build/
+docs/source/api/generated/
+
+# Benchmark and experiment output
+results/
+outputs/
+artifacts/
+out/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
