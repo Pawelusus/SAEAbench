@@ -1,6 +1,7 @@
 default_install_hook_types:
   - pre-commit
   - commit-msg
+  - pre-push
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -30,3 +31,19 @@ repos:
     hooks:
       - id: commitizen
         stages: [commit-msg]
+
+  - repo: local
+    hooks:
+      - id: mypy
+        name: Type-check with mypy
+        entry: uv run mypy
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
+
+      - id: interrogate
+        name: Check docstring coverage
+        entry: uv run interrogate src/samabench
+        language: system
+        pass_filenames: false
+        stages: [pre-push]

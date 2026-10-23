@@ -1,9 +1,9 @@
-.. saeabench documentation master file, created by
+.. samabench documentation master file, created by
    sphinx-quickstart on Mon Oct 19 02:40:48 2026.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-saeabench documentation
+samabench documentation
 =======================
 
 Add your content using ``reStructuredText`` syntax. See the

@@ -3,24 +3,24 @@
 - ~~setup something for documentation (sphinx probably)~~
 - ~~create dependency groups and sort out libraries correctly~~
 - ~~install libraries (and correctly create dependencies)~~
+- ~~setup CI/CD~~
 
-- setup CI/CD:
-  - github actions
-  - Codecov?
+- ~~setup code quality tools~~
+  - ~~ruff~~
+  - ~~mypy~~
+  - ~~interrogate~~
 
-- setup code quality tools
-  - ~~ruff~~ (check)
-  - mypy?
-  - interrogate?
-
-- setup tests
-  - ~~pytest~~ (check)
-  - ~~pytest-cov~~ (check)
-  - hypotesis?
-  - nox?
+- ~~setup tests~~
+  - ~~pytest~~
+  - ~~pytest-cov~~
+  - ~~hypotesis~~
 
 - create empty files for implementation
+
 - setup logging (just logging from stdlib - logging)
-- check if added libraries are neccessary
 - setup cli (typer)
+
+- double check tools configuration
+- check if added libraries are neccessary
+
 - write docs

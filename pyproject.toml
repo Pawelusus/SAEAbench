@@ -1,11 +1,12 @@
 [project]
-name = "saeabench"
+name = "samabench"
 version = "0.1.0"
-description = "Surrogate Assisted Evolutionary Algorithm Benchmark"
+description = "Surrogate Assisted Metaheuristic Algorithm Benchmark"
 readme = "README.md"
 authors = [
     { name = "Paweł Spirydowicz" }
 ]
+keywords = ["SAEA", "surrogate-assisted", "metaheuristics", "evolutionary-algorithms"]
 requires-python = ">=3.13"
 dependencies = [
     "cma>=4.5.0",
@@ -35,7 +36,7 @@ surrogates = [
 ]
 
 [project.scripts]
-saeabench = "saeabench.cli.main:app"
+samabench = "samabench.cli.main:app"
 
 [build-system]
 requires = ["uv_build>=0.12.6,<0.13.0"]
@@ -44,10 +45,13 @@ build-backend = "uv_build"
 [dependency-groups]
 lint = [
     "ruff>=0.17.1",
+    "mypy>=2.4.0",
+    "interrogate>=1.7.0",
 ]
 
 test = [
     { include-group = "lint" },
+    "hypothesis>=6.170.8",
     "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
 ]
@@ -64,6 +68,39 @@ dev = [
     "commitizen>=4.19.2",
     "pre-commit>=4.7.0",
 ]
+
+[tool.interrogate]
+fail-under = 90
+verbose = 1
+
+ignore-init-method = true
+ignore-init-module = true
+ignore-magic = true
+ignore-private = true
+ignore-semiprivate = true
+
+exclude = [
+    "tests",
+    "docs",
+    "build",
+    "dist",
+]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+show_error_codes = true
+pretty = true
+packages = ["samabench"]
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+#
+module = [
+    "tabpfn.*", "tabicl.*", "cocoex.*", "cocopp.*", "cma.*",
+    "matplotlib.*", "pyarrow.*", "scipy.*", "sklearn.*", "floris.*", "xgboost.*",
+]
+ignore_missing_imports = true
 
 [tool.ruff]
 target-version = "py314"
@@ -96,12 +133,17 @@ testpaths = ["tests"]
 addopts = [
     "-ra",
     "--strict-markers",
-    "--cov=saeabench",
+    "--cov=samabench",
     "--cov-report=term-missing",
+]
+markers = [
+    "unit: isolated tests of individual functions or classes",
+    "integration: tests involving multiple samabench components",
+    "slow: tests that are too expensive for normal local or pull-request runs",
 ]
 
 [tool.coverage.run]
-source = ["saeabench"]
+source = ["samabench"]
 branch = true
 
 [tool.coverage.report]

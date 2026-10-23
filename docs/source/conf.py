@@ -8,10 +8,10 @@ from importlib.metadata import version
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "saeabench"
+project = "samabench"
 copyright = "2026, Paweł Spirydowicz"
 author = "Paweł Spirydowicz"
-release = version("saeabench")
+release = version("samabench")
 version = release
 
 # -- General configuration ---------------------------------------------------
